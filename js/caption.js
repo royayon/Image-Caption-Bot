@@ -131,7 +131,7 @@ async function start() {
         'outputs': layer.output
     });
 
-    model = await tf.loadModel('model/model.json');
+    model = await tf.loadLayersModel('model/model.json', strict = false);
     console.log("Inside start()");
     modelLoaded();
 }
