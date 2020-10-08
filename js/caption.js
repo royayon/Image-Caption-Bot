@@ -14,7 +14,7 @@ const maxLen = 40; // 40
 
 function preprocess(imgElement) {
     return tf.tidy(() => {
-        let tensor = tf.fromPixels(imgElement).toFloat();
+        let tensor = tf.browser.fromPixels(imgElement).toFloat();
         const resized = tf.image.resizeBilinear(tensor, [224, 224]);
         const offset = 125.5;
         const normalized = resized.div(offset).sub(tf.scalar(1.0));
