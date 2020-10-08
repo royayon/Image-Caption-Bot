@@ -123,7 +123,7 @@ function caption(img) {
 
 async function start() {
     //mobileNet = loadMobileNet();
-    const mobilenet = await tf.loadModel('https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json');
+    const mobilenet = await tf.loadLayersModel('https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json');
     const layer = mobilenet.getLayer('conv_preds');
     //console.log("mobileNet loaded");
     mobileNet = tf.model({
@@ -131,7 +131,7 @@ async function start() {
         'outputs': layer.output
     });
 
-    model = await tf.loadModel('model/model.json');
+    model = await tf.loadLayersModel('model/model.json');
     console.log("Inside start()");
     modelLoaded();
 }
