@@ -1,7 +1,9 @@
 # Image Caption Bot
  <p align="center">
  <img src="https://github.com/royayon/Image-Caption-Bot/blob/master/images/captionBotLogo.png" alt="Caption Bot" width="200px;" height="200px;"/>
- <h4><a href="https://captionbot.netlify.app/">(https://captionbot.netlify.app/) </a>
+</p>
+<p align="center">
+<h4><a href="https://captionbot.netlify.app/">https://captionbot.netlify.app </a>
 </h4>
 </p>
 
