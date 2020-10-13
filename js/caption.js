@@ -16,8 +16,8 @@ function preprocess(imgElement) {
     return tf.tidy(() => {
         let tensor = tf.browser.fromPixels(imgElement).toFloat();
         const resized = tf.image.resizeBilinear(tensor, [224, 224]);
-        const offset = 125.5;
-        const normalized = resized.div(offset).sub(tf.scalar(1.0));
+        const offset = 255.0;  //125.5
+        const normalized = resized.div(offset).sub(tf.scalar(0.5)).mul(tf.scalar(2.0)); // 1.0 no mul
         const batched = normalized.expandDims(0);
         return batched;
     });
