@@ -2,44 +2,194 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CaptionBot | Ayon</title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="images/captionBotLogo.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- <link rel="stylesheet" href="css/caption.css" /> -->
-    <title>Ayon | Image Captioning Bot</title>
+
+    <style>
+        body {
+            background-color: #18191A;
+            color: #ffffff;
+        }
+
+        .card {
+            background-color: #242526;
+            color: #fff;
+            margin: 15px;
+            border-radius: 20px;
+        }
+
+        .cardSecondary {
+            border-radius: 20px;
+            background-color: #3A3B3C;
+            color: #fff;
+        }
+
+        .modal-content {
+            -webkit-border-radius: 0px !important;
+            -moz-border-radius: 0px !important;
+            border-radius: 20px !important;
+            background-color: #3A3B3C;
+            margin: 10px;
+        }
+
+        .no-border {
+            border: none;
+        }
+
+
+
+        .container {
+            position: relative;
+            /* width: 100%;
+            max-width: 400px; */
+        }
+
+        /* .container img {
+            width: 100%;
+            height: auto;
+        } */
+
+        .container .btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            background-color: black;
+            color: white;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: none;
+            cursor: pointer;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .container .btn:hover {
+            background-color: #0069D9;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="js/bootstrap-filestyle.min.js"> </script>
 </head>
-<style>
-    .pred-container {
-        margin-bottom: 20px;
-    }
-
-    .pred-container>div {
-        display: inline-block;
-        margin-right: 20px;
-        vertical-align: top;
-    }
-
-    .row {
-        display: table-row;
-    }
-
-    .cell {
-        display: table-cell;
-        padding-right: 20px;
-    }
-
-    #file-container {
-        margin-bottom: 20px;
-    }
-</style>
 
 <body>
-    <div class="tfjs-example-container">
-        <section class='title-area'>
-            <h1>Image Captioning Bot</h1>
-        </section>
+    <div>
+        <center>
+            <div class="row">
+                <div class="col-md-6 col-sm-10 mx-auto">
+                    <h1 class=" text-primary" style="margin-top: 12px; color: #55ADEE !important;">
+                        <img src="images/captionBotLogo.png" alt="caption bot Logo"
+                            style="margin-left: 10px;width: 65px;height: 65px;">
+                        CaptionBot
+                    </h1>
+                </div>
+            </div>
+        </center>
 
-        <section>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 mx-auto">
+                <div class="card card-body">
+                    <div>
+                        <!-- <img src="images/captionBotLogo.png" alt="Caption Bot Logo"
+                            style="width: 30px;height: 30px;float: left;"> -->
+
+                        <div id="btn_rules" data-toggle="modal" data-target="#exampleModalLong">
+                            <h6 class="text-muted" style="margin-top: 8px;float: right;margin-right: 30px;">
+                                <u>Usage</u>
+                            </h6>
+                        </div>
+                        <h4 class="text-primary" style="margin-left: 20px; margin-top: 8px;" id="txt">Bot is Sleeping 😴
+                        </h4>
+
+                    </div>
+
+
+                    <div class="card card-body cardSecondary" style="padding: 10px; margin-bottom:5px;">
+                        <center>
+                            <label>
+                                <input type="file" id="imageLoader" name="imageLoader" class="filestyle"
+                                    data-classButton="btn btn-primary" data-input="false" data-classIcon="icon-plus"
+                                    data-dragdrop="false" data-text="Choose Image" />
+                            </label>
+                        </center>
+                    </div>
+
+
+                    <div class="card card-body cardSecondary">
+                        <div id="caption-div">
+                            <h5 style="float: left;">Caption: &nbsp;</h5>
+                            <div id="caption">Select an Image first!</div>
+                        </div>
+                    </div>
+
+
+                    <center>
+                        <div class="container">
+                            <img src="images/picture.jpg" id="image" height="300">
+                            <button type="button" id="btn" class="submitbtn btn btn-success">Caption!</button>
+                        </div>
+                    </center>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content col-11">
+                    <div class="modal-header no-border">
+                        <h4 class="modal-title" id="exampleModalLongTitle">Usage :</h4>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            style="color: #ffffff;">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p style="margin-bottom: 0px;">
+                        <h6>Welcome to my WebAPP CaptionBot</h6>
+                        </p>
+                        <p style=" margin-top: 0px;">To Caption an Image:</p>
+                        <p style="margin-left: 15px;"> 1. When the page loads wait until the bot is ready. (or not
+                            sleeping! 😴)</p>
+                        <p style="margin-left: 15px;"> 2. Click the
+                            "Caption!" button on top of the image then wait until the caption appears.</p>
+                        <p style="margin-left: 15px;"> 3. Note: If you are visiting this site the first time then , it
+                            might
+                            take some time to load the bot! but browsers will cache the bot so its just a one time
+                            wait!!</p>
+                        <p style="margin-left: 15px;"> 4. Note: UI may be unresponsive sometimes while generating
+                            caption.</p>
+
+                        <p style="margin: 0px;">Again, Thanks a lot for checking up my Bot!!</p>
+                    </div>
+                    <div class="modal-footer no-border">
+                        <button type="button" class="btn btn-info" data-dismiss="modal">OK, Got it!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <section>
             <p class='section-head'>Description</p>
             <p>
                 After the models are loaded, upload any image and click the
@@ -60,18 +210,32 @@
             <div id="caption"></div>
         </div>
         </p>
-        <img src="images/picture.jpg" id="image" width="400">
+        <img src="images/picture.jpg" id="image" width="400"> -->
+    </div>
+
+    <footer>
+        <div align="center">
+            <p>Created by AYON ROY | All Rights Reserved</p>
+        </div>
+    </footer>
 
 
-        <!-- Load TensorFlow.js. -->
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"></script> -->
-        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.6.0/dist/tf.min.js"></script>
-        <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script> -->
-        <!-- Load Tokenizers -->
-        <script src="model/word2idx.js"></script>
-        <script src="model/idx2word.js"></script>
-        <!-- Main Logic JS code -->
-        <script src="js/caption.js"></script>
+    <!-- Load TensorFlow.js. -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.6.0/dist/tf.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@1.0.0"> </script> -->
+    <!-- Load Tokenizers -->
+    <script src="model/word2idx.js"></script>
+    <script src="model/idx2word.js"></script>
+    <!-- Main Logic JS code -->
+    <script src="js/caption.js"></script>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.3/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script> -->
 </body>
 
 </html>

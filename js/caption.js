@@ -141,7 +141,7 @@ function modelLoaded() {
     mobileNet.predict(tf.zeros([1, 224, 224, 3])).dispose();
     //console.log("Inside modelLoaded()");
     isModelLoaded = true;
-    text.innerHTML = "Models Loaded!";
+    text.innerHTML = "🎉 Bot is Ready! ";
 }
 
 
@@ -159,7 +159,7 @@ button.addEventListener("click", function () {
         console.log('Models not loaded yet');
         return;
     }
-    capField.innerHTML = "Generating Caption ... Please Wait";
+    capField.innerHTML = "Generating Caption! Please Wait...";
     let picture = preprocess(img);
     //let cap = caption(picture);
     caption(picture);
