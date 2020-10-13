@@ -124,7 +124,7 @@ function caption(img) {
 async function start() {
     //mobileNet = loadMobileNet();
     //const mobilenet = await tf.loadLayersModel('https://storage.googleapis.com/tfjs-models/tfjs/mobilenet_v1_0.25_224/model.json');
-    const mobilenet = await tf.loadLayersModel('https://raw.githubusercontent.com/royayon/Image-Caption-Bot/master/model/model_new/model.json');
+    const mobilenet = await tf.loadLayersModel('https://raw.githubusercontent.com/royayon/Image-Caption-Bot/master/model/model_new/model.json'); //model/model_new/model.json
     const layer = mobilenet.getLayer('conv_preds');
     //console.log("mobileNet loaded");
     mobileNet = tf.model({
@@ -132,7 +132,7 @@ async function start() {
         'outputs': layer.output
     });
 
-    model = await tf.loadLayersModel('https://raw.githubusercontent.com/royayon/Image-Caption-Bot/master/model/model.json');
+    model = await tf.loadLayersModel('https://raw.githubusercontent.com/royayon/Image-Caption-Bot/master/model/model.json');  //model/model.json
     console.log("Inside start()");
     modelLoaded();
 }
