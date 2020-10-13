@@ -1,4 +1,16 @@
 # Image Caption Bot
+ ![Caption Bot](https://github.com/royayon/Image-Caption-Bot/blob/master/images/captionBotLogo.png)
+ 
+## Description
+A Bot that can caption any image given to it!
+
+### Built with:
+* Tensorflow JS
+* Keras (for model)
+* Flickr8k_Dataset (for training the model)
+* pandas, numpy, matplotlib, pillow and other python libraries for traing the model
+* tfjs for converting the model to `.json` so that the model can be deployed with Javascript
+ 
  
 ## Deploy:
 * Check out the working website for captioning images on this [link](https://captionbot.netlify.app/) (https://captionbot.netlify.app/)
