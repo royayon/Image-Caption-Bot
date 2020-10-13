@@ -1,5 +1,7 @@
 # Image Caption Bot
- ![Caption Bot](https://github.com/royayon/Image-Caption-Bot/blob/master/images/captionBotLogo.png =150x150)
+ <center>
+ <img src="https://github.com/royayon/Image-Caption-Bot/blob/master/images/captionBotLogo.png" alt="Caption Bot" width="150px;" height="150px;"/>
+ </center>
  
 ## Description
 A Bot that can caption any image given to it!
