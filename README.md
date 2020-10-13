@@ -2,10 +2,8 @@
  <p align="center">
  <img src="https://github.com/royayon/Image-Caption-Bot/blob/master/images/captionBotLogo.png" alt="Caption Bot" width="200px;" height="200px;"/>
 </p>
-<p align="center">
-<h4><a href="https://captionbot.netlify.app/">https://captionbot.netlify.app </a>
+<h4>Website: <a href="https://captionbot.netlify.app/">https://captionbot.netlify.app </a>
 </h4>
-</p>
 
 ## Description
 A Bot that can caption any image given to it!
